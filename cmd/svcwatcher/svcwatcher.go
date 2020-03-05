@@ -62,8 +62,7 @@ func main() {
 	run := func(stopCh <-chan struct{}) {
 		go kubeInformerFactory.Start(stopCh)
 		go danmInformerFactory.Start(stopCh)
-
-		if err = controller.Run(10, stopCh); err != nil {
+ 		if err = controller.Run(10, stopCh); err != nil {
 			glog.Fatalf("Error running controller: %s", err.Error())
 		}
 	}
